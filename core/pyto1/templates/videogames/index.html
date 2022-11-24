@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/crud/read.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+    <body>
+        {% comment %} <a  class="button-insertar" href="{% url 'videogames' %}">Volver</a> {% endcomment %}
+        <div class="main-container">
+            {% comment %} <div class="titulo-tabla">
+                <h2>Mantenimiento de VideoJuegos
+                    <a  class="button-insertar" href="{% url 'vg_crear' %}">Crear</a>
+                </h2>
+
+            </div>   {% endcomment %}
+            <div style="background-color:#2A2929">
+                <nav>
+                <div class="header">
+                    <a href="">
+                    <div class="logo">
+                        <div class="logoimg">
+                        {% comment %} <img src="https://png.pngtree.com/png-clipart/20190921/original/pngtree-movie-board-icon-png-image_4751062.jpg"> {% endcomment %}
+                        </div>
+                    </div>
+                    </a>
+                    <div class="header__button">
+                    <span><a href="{% url 'vg_crear' %}">Crear</a></span>
+                    </div>  
+                    <div class="prueba">   
+                    <a class="buttonpeli" href="{% url 'videogames' %}">Volver</a>
+                    </div>
+                </div>
+                </nav> 
+            </div>
+
+            <div class="container">
+                <table class="styled-table"> 
+            
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Título</th>
+                            <th>Póster</th>
+                            <th width="500px">Descripción</th>
+                            <th width="80px">Acciones</th>
+                        </tr>
+                    </thead>
+                    {%for c in pelis%}
+                    <tr>
+                        <td>{{c.id}}</td>
+                        <td>{{c.titulo}}</td>
+                        <td> <img src="{{c.imagen.url}}" width="100px" height="150px"></td>
+                        <td>{{c.description}}</td>
+                        <td>
+                            <a  class="button-editar" href="{% url 'vg_editar' c.id%}">Editar</a>
+                            <a  class="button-eliminar" href="{% url 'vg_eliminar' c.id%}">Eliminar</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

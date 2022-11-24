@@ -1,0 +1,67 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Películas</title>
+  {% load static %}
+    <link rel="stylesheet" href="{% static 'css/pelis.css' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+</head>
+<body>
+  <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    {% comment %} <header>
+      <div class="logo">
+          <img src="https://png.pngtree.com/png-clipart/20190921/original/pngtree-movie-board-icon-png-image_4751062.jpg" href="#home">
+          <a href="{% url 'index' %}">Home</a>
+      </div>      
+      <div>
+        <a class="buttonpeli" href="/pelis-index">Administrar</a>
+      </div>       {% endcomment %}
+
+      <div style="background-color:#2A2929">
+        <nav>
+          <div class="header">
+            <a href="">
+              <div class="logo">
+                <div class="logoimg">
+                  <img src="https://png.pngtree.com/png-clipart/20190921/original/pngtree-movie-board-icon-png-image_4751062.jpg">
+                </div>
+              </div>
+            </a>
+            <div class="header__button">
+              <span><a href="{% url 'index' %}">Home</a></span>
+            </div>  
+            <div class="prueba">   
+              <a class="buttonpeli" href="/pelis-index">Administrar</a>
+            </div>
+          </div>
+        </nav> 
+    </div>
+
+    {% comment %} </header> {% endcomment %}
+    <!-- END OF HEADER -->
+    
+    <!-- MAIN CONTAINER -->
+    <section class="main-container" >
+      <div class="location" id="home">
+          <h1 id="home">Películas Populares</h1>
+          <div class="box">
+            {% for c in data %}
+            <a href="{% url 'pelis_details' c.id %}"><img src="{{c.imagen.url}}" alt="" width="230px" height="245px"></a>
+            
+    {% endfor %}
+        
+          </div>
+      </div>
+      
+    <!-- END OF MAIN CONTAINER -->
+    <footer>
+      <p>Equipo9 &copy 2022</p>
+    </footer>
+  </div>
+</body>
+</html>

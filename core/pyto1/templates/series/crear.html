@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+
+            <div style="background-color:#2A2929">
+                <nav>
+                <div class="header">
+                    <a href="">
+                    <div class="logo">
+                        <div class="logoimg">
+                        {% comment %} <img src="https://png.pngtree.com/png-clipart/20190921/original/pngtree-movie-board-icon-png-image_4751062.jpg"> {% endcomment %}
+                        </div>
+                    </div>
+                    </a>
+                    {% comment %} <div class="header__button">
+                    <span><a href="{% url 'pelis_crear' %}">Crear</a></span>
+                    </div>   {% endcomment %}
+                    <div class="prueba">   
+                    <a class="buttonpeli" href="{% url 'series' %}">Volver</a>
+                    </div>
+                </div>
+                </nav> 
+            </div> 
+    <br>
+    <div class="titulo-tabla">
+            <h2 class="text-center">Registrar</h2>
+    </div>
+    <div class="container">
+
+        {% include 'series/form.html' %}
+    </div>
+</body>
+</html>
